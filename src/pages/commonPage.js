@@ -18,3 +18,5 @@ class CommonPage extends Component {
     );
   }
 }
+
+export default CommonPage;
