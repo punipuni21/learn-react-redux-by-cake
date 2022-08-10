@@ -2,7 +2,7 @@ import { createTheme } from "@material-ui/core";
 import pink from "@material-ui/core/colors/pink";
 import amber from "@material-ui/core/colors/amber";
 
-const commonStyle = () => {
+const commonStyle = () =>
   createTheme({
     palette: {
       primary: {
@@ -13,6 +13,5 @@ const commonStyle = () => {
       },
     },
   });
-};
 
 export default commonStyle;
