@@ -10,7 +10,6 @@ const MaterialListSetting = {
     { label: "名前", data: "name" },
     { label: "値段", data: "price" },
     { label: "在庫数", data: "stock" },
-    { label: "売る", data: "sell" },
     { label: "在庫数を増やす", data: "refill" },
   ],
 };
