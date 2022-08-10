@@ -1,20 +1,22 @@
 import React, { Component } from "react";
-import commonStyle from "../const/commonStyle";
+// import commonStyle from "../const/commonStyle";
 import AppBar from "@material-ui/core/AppBar";
-import { Toolbar } from "@material-ui/core";
-import Typography from "@material-ui/core";
-import { MultiThemeProvider } from "@material-ui/core";
+import Toolbar from "@material-ui/core/Toolbar";
+import Typography from "@material-ui/core/Typography";
+import { MuiThemeProvider } from "@material-ui/core";
 
 class CommonPage extends Component {
   render() {
     return (
-      <MultiThemeProvider>
-        <AppBar>
+      <MuiThemeProvider>
+        <AppBar position="static" color="primary">
           <Toolbar>
-            <Typography>CANDY CHUPS PAatisserie</Typography>
+            <Typography variant="h6" color="inherit">
+              CANDY CHUPS PAatisserie
+            </Typography>
           </Toolbar>
         </AppBar>
-      </MultiThemeProvider>
+      </MuiThemeProvider>
     );
   }
 }
