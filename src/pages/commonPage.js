@@ -13,7 +13,7 @@ class CommonPage extends Component {
         <AppBar position="static" color="primary">
           <Toolbar>
             <Typography variant="h6" color="inherit">
-              CANDY CHUPS PAatisserie
+              CANDY CHUPS Patisserie
             </Typography>
           </Toolbar>
         </AppBar>
