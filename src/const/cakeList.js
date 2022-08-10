@@ -1,4 +1,4 @@
-export const CakeListSetting = {
+const CakeListSetting = {
   initialList: [
     { name: "ショートケーキ", price: 350, stock: 10 },
     { name: "チーズケーキ", price: 380, stock: 8 },
@@ -14,3 +14,5 @@ export const CakeListSetting = {
     { label: "在庫数を増やす", data: "refill" },
   ],
 };
+
+export default CakeListSetting;
