@@ -1,14 +1,15 @@
 import React, { Component } from "react";
-// import commonStyle from "../const/commonStyle";
+import commonStyle from "../const/commonStyle";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
-import { MuiThemeProvider } from "@material-ui/core";
+import { ThemeProvider } from "@material-ui/core";
 
 class CommonPage extends Component {
   render() {
+    const theme = commonStyle();
     return (
-      <MuiThemeProvider>
+      <ThemeProvider theme={theme}>
         <AppBar position="static" color="primary">
           <Toolbar>
             <Typography variant="h6" color="inherit">
@@ -16,7 +17,7 @@ class CommonPage extends Component {
             </Typography>
           </Toolbar>
         </AppBar>
-      </MuiThemeProvider>
+      </ThemeProvider>
     );
   }
 }
