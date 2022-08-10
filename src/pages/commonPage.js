@@ -4,6 +4,8 @@ import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import { ThemeProvider } from "@material-ui/core";
+import ListTable from "../components/listTable";
+import CakeListSetting from "../const/cakeList";
 
 class CommonPage extends Component {
   render() {
@@ -17,6 +19,10 @@ class CommonPage extends Component {
             </Typography>
           </Toolbar>
         </AppBar>
+        <ListTable
+          tableSetting={CakeListSetting.tableSetting}
+          data={CakeListSetting.initialList}
+        ></ListTable>
       </ThemeProvider>
     );
   }
