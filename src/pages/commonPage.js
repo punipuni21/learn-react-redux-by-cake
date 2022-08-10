@@ -1,13 +1,44 @@
 import React, { Component } from "react";
+import SwipeableViews from "react-swipeable-views";
 import commonStyle from "../const/commonStyle";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
-import { ThemeProvider } from "@material-ui/core";
+import Tabs from "@material-ui/core/Tabs";
+import Tab from "@material-ui/core/Tab";
+import CakeIcon from "@material-ui/icons/Cake";
+import KitchenIcon from "@material-ui/icons/Kitchen";
+import { ThemeProvider } from "@material-ui/styles";
 import ListTable from "../components/listTable";
 import CakeListSetting from "../const/cakeList";
+import MaterialListSetting from "../const/materialList";
 
 class CommonPage extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      value: 0,
+    };
+  }
+  a11yProps(index) {
+    return {
+      id: `full-width-tab-${index}`,
+      "area-controls": `full-width-tabpanel-${index}`,
+    };
+  }
+
+  handleChange() {
+    this.setState({
+      value: this.state.value === 0 ? 1 : 0,
+    });
+  }
+
+  handleChangeIndex(index) {
+    this.setState({
+      value: index,
+    });
+  }
+
   render() {
     const theme = commonStyle();
     return (
@@ -19,10 +50,45 @@ class CommonPage extends Component {
             </Typography>
           </Toolbar>
         </AppBar>
-        <ListTable
-          tableSetting={CakeListSetting.tableSetting}
-          data={CakeListSetting.initialList}
-        ></ListTable>
+        <AppBar position="static" color="default">
+          <Tabs
+            value={this.state.value}
+            onChange={() => this.handleChange()}
+            indicatorColor="primary"
+            textColor="primary"
+            variant="fullWidth"
+            area-label="full width tabs example"
+          >
+            <Tab
+              label="販売ケーキ一覧"
+              icon={<CakeIcon />}
+              {...this.a11yProps(0)}
+            />
+            <Tab
+              label="在庫管理"
+              icon={<KitchenIcon />}
+              {...this.a11yProps(1)}
+            />
+          </Tabs>
+        </AppBar>
+        <SwipeableViews
+          axis={theme.direction === "rt1" ? "x-revers e" : "x"}
+          index={this.state.value}
+          onChangeIndex={() => this.handleChangeIndex()}
+        >
+          <div value={this.state.value} index={0} dir={theme.direction}>
+            <ListTable
+              tableSetting={CakeListSetting.tableSetting}
+              data={CakeListSetting.initialList}
+            />
+          </div>
+          <div value={this.state.value} index={1} dir={theme.direction}>
+            <ListTable
+              tableSetting={MaterialListSetting.tableSetting}
+              data={MaterialListSetting.initialList}
+            />
+          </div>
+        </SwipeableViews>
       </ThemeProvider>
     );
   }
