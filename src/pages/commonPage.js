@@ -13,7 +13,7 @@ import ListTable from "../components/listTable";
 import CakeListSetting from "../const/cakeList";
 import MaterialListSetting from "../const/materialList";
 import { connect } from "react-redux";
-import { setCakeStock } from "../action/cakeListAction";
+import { setCakeStock, sellShortCake } from "../action/cakeListAction";
 
 function mapStateToProps(state) {
   return {
@@ -27,7 +27,13 @@ class CommonPage extends Component {
     this.state = {
       value: 0,
     };
+    this.sellCake = this.sellCake.bind(this);
   }
+
+  sellCake() {
+    this.props.dispatch(sellShortCake());
+  }
+
   a11yProps(index) {
     return {
       id: `full-width-tab-${index}`,
@@ -93,7 +99,7 @@ class CommonPage extends Component {
             <ListTable
               tableSetting={CakeListSetting.tableSetting}
               data={cakeProps.cakeList}
-              sellHandler={this.sellHandler}
+              sellHandler={this.sellCake}
             />
           </div>
           <div value={this.state.value} index={1} dir={theme.direction}>

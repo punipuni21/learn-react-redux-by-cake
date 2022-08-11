@@ -12,6 +12,10 @@ export default function cakeListReducer(state = initialState, action) {
     case types.SET_CAKE_LIST:
       newState.cakeList = action.cakeList;
       return newState;
+    case types.SELL_SHORTCAKE:
+      newState.cakeList[0].stock -= 1;
+      newState.funds += 350;
+      return newState;
     default:
       return state;
   }
