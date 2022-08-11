@@ -6,5 +6,6 @@ export const SELL_CAKE = "SELL_CAKE";
 export const MAKE_CAKE = "MAKE_CAKE";
 
 export const CONSUME_MATERIAL = "CONSUME_MATERIAL";
+export const REFILL_MATERIAL = "REFILL_MATERIAL";
 
 // module.exports = { SET_CAKE_LIST, SELL_SHORTCAKE };
