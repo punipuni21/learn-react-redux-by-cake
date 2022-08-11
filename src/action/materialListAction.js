@@ -13,3 +13,10 @@ export const consumeMaterial = (name) => {
     name,
   };
 };
+
+export const refillMaterial = (name) => {
+  return {
+    type: types.REFILL_MATERIAL,
+    name,
+  };
+};

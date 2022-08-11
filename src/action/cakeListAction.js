@@ -22,4 +22,11 @@ export const makeCake = (name) => {
   };
 };
 
+export const buyMaterial = (name) => {
+  return {
+    type: types.BUY_MAKERIAL,
+    name,
+  };
+};
+
 // export default { setCakeStock, sellShortCake };
