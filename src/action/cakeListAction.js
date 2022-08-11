@@ -22,10 +22,10 @@ export const makeCake = (name) => {
   };
 };
 
-export const buyMaterial = (name) => {
+export const buyMaterial = (price) => {
   return {
     type: types.BUY_MAKERIAL,
-    name,
+    price,
   };
 };
 
