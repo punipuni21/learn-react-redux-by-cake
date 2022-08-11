@@ -13,10 +13,16 @@ import ListTable from "../components/listTable";
 import CakeListSetting from "../const/cakeList";
 import MaterialListSetting from "../const/materialList";
 import { connect } from "react-redux";
-import { setCakeStock, sellCake, makeCake } from "../action/cakeListAction";
+import {
+  setCakeStock,
+  sellCake,
+  makeCake,
+  buyMaterial,
+} from "../action/cakeListAction";
 import {
   setMaterialStock,
   consumeMaterial,
+  refillMaterial,
 } from "../action/materialListAction";
 
 function mapStateToProps(state) {
@@ -31,6 +37,7 @@ class CommonPage extends Component {
     };
     this.sellCake = this.sellCake.bind(this);
     this.makeCake = this.makeCake.bind(this);
+    this.refillMaterial = this.refillMaterial.bind(this);
   }
   makeCake(name) {
     this.props.dispatch(makeCake(name));
@@ -39,6 +46,11 @@ class CommonPage extends Component {
 
   sellCake(name, price) {
     this.props.dispatch(sellCake(name, price));
+  }
+
+  refillMaterial(name, price) {
+    this.props.dispatch(refillMaterial(name));
+    this.props.dispatch(buyMaterial(price));
   }
 
   a11yProps(index) {
@@ -118,6 +130,7 @@ class CommonPage extends Component {
             <ListTable
               tableSetting={MaterialListSetting.tableSetting}
               data={materialProps.materialList}
+              refillHandler={this.refillMaterial}
             />
           </div>
         </SwipeableViews>
