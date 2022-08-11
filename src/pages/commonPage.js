@@ -69,6 +69,9 @@ class CommonPage extends Component {
             </Typography>
           </Toolbar>
         </AppBar>
+        <Typography variant="h3" color="secondary">
+          現在の資金:{cakeProps.funds}円
+        </Typography>
         <AppBar position="static" color="default">
           <Tabs
             value={this.state.value}
