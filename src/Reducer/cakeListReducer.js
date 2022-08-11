@@ -20,6 +20,13 @@ export default function cakeListReducer(state = initialState, action) {
       });
       newState.funds += action.price;
       return newState;
+    case types.MAKE_CAKE:
+      newState.cakeList.forEach((item, index) => {
+        if (item.name === action.name) {
+          newState.cakeList[index].stock += 1;
+        }
+      });
+      return newState;
     default:
       return state;
   }

@@ -13,8 +13,11 @@ import ListTable from "../components/listTable";
 import CakeListSetting from "../const/cakeList";
 import MaterialListSetting from "../const/materialList";
 import { connect } from "react-redux";
-import { setCakeStock, sellCake } from "../action/cakeListAction";
-import { setMaterialStock } from "../action/materialListAction";
+import { setCakeStock, sellCake, makeCake } from "../action/cakeListAction";
+import {
+  setMaterialStock,
+  consumeMaterial,
+} from "../action/materialListAction";
 
 function mapStateToProps(state) {
   return state;
@@ -27,6 +30,11 @@ class CommonPage extends Component {
       value: 0,
     };
     this.sellCake = this.sellCake.bind(this);
+    this.makeCake = this.makeCake.bind(this);
+  }
+  makeCake(name) {
+    this.props.dispatch(makeCake(name));
+    this.props.dispatch(consumeMaterial(name));
   }
 
   sellCake(name, price) {
@@ -103,6 +111,7 @@ class CommonPage extends Component {
               tableSetting={CakeListSetting.tableSetting}
               data={cakeProps.cakeList}
               sellHandler={this.sellCake}
+              refillHandler={this.makeCake}
             />
           </div>
           <div value={this.state.value} index={1} dir={theme.direction}>

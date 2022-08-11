@@ -40,7 +40,7 @@ class ListTable extends Component {
                       <Button
                         variant="contained"
                         color="primary"
-                        onClick={this.props.refillHandler}
+                        onClick={() => this.props.refillHandler(item.name)}
                       >
                         １つ補充する
                       </Button>
