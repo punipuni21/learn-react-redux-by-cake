@@ -43,6 +43,13 @@ export default function materialListReducer(state = initialState, action) {
         default:
           return newState;
       }
+    case types.REFILL_MATERIAL:
+      newState.materialList.forEach((item, index) => {
+        if (item.name === action.name) {
+          newState.materialList[index].stock += 1;
+        }
+      });
+      return newState;
     default:
       return state;
   }
