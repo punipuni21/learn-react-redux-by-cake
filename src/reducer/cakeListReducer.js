@@ -1,4 +1,4 @@
-import { cloneDeep } from "looash";
+import { cloneDeep } from "lodash";
 import * as types from "../action/actionTypes";
 
 const initialState = {
