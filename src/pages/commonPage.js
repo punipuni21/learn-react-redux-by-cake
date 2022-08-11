@@ -12,6 +12,14 @@ import { ThemeProvider } from "@material-ui/styles";
 import ListTable from "../components/listTable";
 import CakeListSetting from "../const/cakeList";
 import MaterialListSetting from "../const/materialList";
+import { connect } from "react-redux";
+import { setCakeStock } from "../action/cakeListAction";
+
+function mapStateToProps(state) {
+  return {
+    cakeProps: state,
+  };
+}
 
 class CommonPage extends Component {
   constructor(props) {
@@ -39,8 +47,13 @@ class CommonPage extends Component {
     });
   }
 
+  componentDidMount() {
+    this.props.dispatch(setCakeStock(CakeListSetting.initialList));
+  }
+
   render() {
     const theme = commonStyle();
+    const { cakeProps } = this.props;
     return (
       <ThemeProvider theme={theme}>
         <AppBar position="static" color="primary">
@@ -79,7 +92,8 @@ class CommonPage extends Component {
           <div value={this.state.value} index={0} dir={theme.direction}>
             <ListTable
               tableSetting={CakeListSetting.tableSetting}
-              data={CakeListSetting.initialList}
+              data={cakeProps.cakeList}
+              sellHandler={this.sellHandler}
             />
           </div>
           <div value={this.state.value} index={1} dir={theme.direction}>
@@ -94,4 +108,4 @@ class CommonPage extends Component {
   }
 }
 
-export default CommonPage;
+export default connect(mapStateToProps)(CommonPage);
