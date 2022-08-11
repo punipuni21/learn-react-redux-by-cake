@@ -28,7 +28,9 @@ class ListTable extends Component {
                       <Button
                         variant="contained"
                         color="primary"
-                        onClick={this.props.sellHandler}
+                        onClick={() =>
+                          this.props.sellHandler(item.name, item.price)
+                        }
                       >
                         １つ売る
                       </Button>

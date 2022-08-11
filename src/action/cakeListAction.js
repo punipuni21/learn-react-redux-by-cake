@@ -7,9 +7,11 @@ export const setCakeStock = (cakeList) => {
   };
 };
 
-export const sellShortCake = () => {
+export const sellCake = (name, price) => {
   return {
-    type: types.SELL_SHORTCAKE,
+    type: types.SELL_CAKE,
+    name,
+    price,
   };
 };
 

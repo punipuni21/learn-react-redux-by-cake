@@ -13,7 +13,7 @@ import ListTable from "../components/listTable";
 import CakeListSetting from "../const/cakeList";
 import MaterialListSetting from "../const/materialList";
 import { connect } from "react-redux";
-import { setCakeStock, sellShortCake } from "../action/cakeListAction";
+import { setCakeStock, sellCake } from "../action/cakeListAction";
 
 function mapStateToProps(state) {
   return {
@@ -30,8 +30,8 @@ class CommonPage extends Component {
     this.sellCake = this.sellCake.bind(this);
   }
 
-  sellCake() {
-    this.props.dispatch(sellShortCake());
+  sellCake(name, price) {
+    this.props.dispatch(sellCake(name, price));
   }
 
   a11yProps(index) {
