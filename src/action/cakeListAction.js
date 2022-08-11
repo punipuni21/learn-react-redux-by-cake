@@ -7,6 +7,10 @@ export const setCakeStock = (cakeList) => {
   };
 };
 
-export default {
-  setCakeStock,
+export const sellShortCake = () => {
+  return {
+    type: types.SELL_SHORTCAKE,
+  };
 };
+
+// export default { setCakeStock, sellShortCake };
