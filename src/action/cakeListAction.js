@@ -15,4 +15,11 @@ export const sellCake = (name, price) => {
   };
 };
 
+export const makeCake = (name) => {
+  return {
+    type: types.MAKE_CAKE,
+    name,
+  };
+};
+
 // export default { setCakeStock, sellShortCake };

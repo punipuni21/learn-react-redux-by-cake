@@ -6,3 +6,10 @@ export const setMaterialStock = (materialList) => {
     materialList,
   };
 };
+
+export const consumeMaterial = (name) => {
+  return {
+    type: types.CONSUME_MATERIAL,
+    name,
+  };
+};
