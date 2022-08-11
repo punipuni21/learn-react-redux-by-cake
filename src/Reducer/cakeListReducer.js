@@ -27,6 +27,9 @@ export default function cakeListReducer(state = initialState, action) {
         }
       });
       return newState;
+    case types.BUY_MAKERIAL:
+      newState.funds -= action.price;
+      return newState;
     default:
       return state;
   }
