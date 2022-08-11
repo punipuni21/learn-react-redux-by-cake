@@ -14,11 +14,10 @@ import CakeListSetting from "../const/cakeList";
 import MaterialListSetting from "../const/materialList";
 import { connect } from "react-redux";
 import { setCakeStock, sellCake } from "../action/cakeListAction";
+import { setMaterialStock } from "../action/materialListAction";
 
 function mapStateToProps(state) {
-  return {
-    cakeProps: state,
-  };
+  return state;
 }
 
 class CommonPage extends Component {
@@ -55,11 +54,12 @@ class CommonPage extends Component {
 
   componentDidMount() {
     this.props.dispatch(setCakeStock(CakeListSetting.initialList));
+    this.props.dispatch(setMaterialStock(MaterialListSetting.initialList));
   }
 
   render() {
     const theme = commonStyle();
-    const { cakeProps } = this.props;
+    const { cakeProps, materialProps } = this.props;
     return (
       <ThemeProvider theme={theme}>
         <AppBar position="static" color="primary">
@@ -108,7 +108,7 @@ class CommonPage extends Component {
           <div value={this.state.value} index={1} dir={theme.direction}>
             <ListTable
               tableSetting={MaterialListSetting.tableSetting}
-              data={MaterialListSetting.initialList}
+              data={materialProps.materialList}
             />
           </div>
         </SwipeableViews>
